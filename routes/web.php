@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','PagesController@index');
 Route::get('/login','PagesController@login');
 Route::get('/register','PagesController@register');
+Route::post('/post','PostsController@store');
+/*Route::post('/post', function(Request $request){
+    $request->image->store('images','public');
+    return 'uploaded';
+});
 /*Route::get('/', function () {
     return view('welcome');
 });
