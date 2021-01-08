@@ -12,6 +12,8 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function posts(){
 return response()->json(posts::get(), 200);
 
@@ -34,6 +36,7 @@ public function postsave(Request $request){
 
     public function index()
     {
+       
       return view('home');
     }
 
@@ -72,7 +75,7 @@ public function postsave(Request $request){
      */
     public function show(posts $posts)
     {
-        //
+       //
     }
 
     /**
