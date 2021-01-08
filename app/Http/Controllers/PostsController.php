@@ -12,6 +12,26 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function posts(){
+return response()->json(posts::get(), 200);
+
+    }
+
+public function postsByID($id){
+return response()->json(posts::find($id), 200);
+
+}
+
+public function postsave(Request $request){
+    $post=new posts([
+        'caption'=>$request->get('caption'),
+       'hashtag'=>$request->get('hashtag'),
+        'path' =>$request->image->store('images','public')
+        ]);
+       $post->save();
+    return response()->json($post, 201);
+}
+
     public function index()
     {
       return view('home');
@@ -41,6 +61,7 @@ class PostsController extends Controller
         'path' =>$request->image->store('images','public')
         ]);
        $Post->save();
+       return redirect('/home');
     }
 
     /**
